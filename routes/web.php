@@ -17,4 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/shipper', 'Auth\LoginController@showShipperLoginForm');
+Route::get('/carrier', 'Auth\LoginController@showCarrierLoginForm');
+
 Route::get('/home', 'HomeController@index')->name('home');

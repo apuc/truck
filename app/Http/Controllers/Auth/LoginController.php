@@ -36,4 +36,24 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'phone';
+    }
+
+    public function showShipperLoginForm()
+    {
+        return view('auth.shipper-login');
+    }
+    public function showCarrierLoginForm()
+    {
+        return view('auth.carrier-login');
+    }
+
 }
