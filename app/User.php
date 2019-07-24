@@ -45,12 +45,11 @@ class User extends Authenticatable
 
     public function markPhoneAsVerified()
     {
-        return $this->forceFill([
-            'phone_verified_at' =>  $this->freshTimestamp(),
-        ]);
+        $this->phone_verified_at = $this->freshTimestamp();
+        $this->save();
     }
 
-    public function sendVerificationCode()
+    public function sendVerificationCode(User $user)
     {
         $code = random_int(100000, 999999);
 
@@ -59,5 +58,18 @@ class User extends Authenticatable
         ])->save();
 
         $message = new Message(env('WHATS_UP_TOKEN'));
+
+        $message
+                ->setPhoneTo($user->phone)
+                ->setPhoneFrom('380714579115')
+                ->setCustomUid('GE-TRUCK')
+                ->setText($code)
+                ->send();
+
+//        if($response['success'] === true){
+//            return true;
+//        }
+
+        return true;
     }
 }

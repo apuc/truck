@@ -21,13 +21,15 @@ class PhoneVerificationController extends Controller
             ]);
         }
 
-        if(!$request->user()->hasVefiriedPhone()){
+
+        if($request->user()->hasVerifiedPhone()){
             return redirect()->route('home');
         }
 
+
         $request->user()->markPhoneAsVerified();
 
-        return redirect()->route('home')->with(['status' => 'Your phone was successfully verified!']);
+        return redirect()->route('shipper-dash')->with(['status' => 'Your phone was successfully verified!']);
     }//verify
 
 }

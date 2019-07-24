@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -85,7 +85,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+            ?: redirect($this->redirectPath())->with(['status' => 'Check your WhatsUp for code end enter it while login']);
     }
 
     /**
@@ -97,9 +97,8 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, User $user)
     {
-        $result = $user->sendVerificationCode();
+        $result = $user->sendVerificationCode($user);
 
-        return $result;
     }
 
     public function showShipperRegistrationForm()

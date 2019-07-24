@@ -156,7 +156,7 @@ class Message {
      * Validate phone format
      */
     private static function validatePhone(string $phone) {
-        if(preg_match("/^\d{10}$/", $phone) == false){
+        if(preg_match("/^\d{12}$/", $phone) == false){
             throw new ValidationException('Invalid phone format');
         }
     }

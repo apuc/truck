@@ -17,11 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/shipper-log', 'Auth\LoginController@showShipperLoginForm');
+Route::get('/shipper-log', 'Auth\LoginController@showShipperLoginForm')->name('shipper-log');
 Route::get('/carrier-log', 'Auth\LoginController@showCarrierLoginForm');
 
-Route::get('/shipper-reg', 'Auth\RegisterController@showShipperRegistrationForm');
+Route::get('/shipper-reg', 'Auth\RegisterController@showShipperRegistrationForm')->name('shipper-reg');
 
 Route::get('phone/verify', 'Auth\PhoneVerificationController@show')->name('phone-verification.notice');
 Route::post('phone/verify', 'Auth\PhoneVerificationController@verify')->name('phone-verification.verify');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/shipper-dash', 'ShipperController@showDashboard')->name('shipper-dash');

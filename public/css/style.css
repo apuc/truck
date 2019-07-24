@@ -1,0 +1,156 @@
+/* Empty. Add your own CSS if you like */
+
+drawer {
+    background-color: rgba(0,12,39,0.90) !important;
+    width: 250px;
+}
+drawer h2 {
+    color: #fff;
+    margin-top: 40px !important;
+    margin-left: 15px;
+    font-weight: 200;
+}
+drawer .item {
+    background: none;
+    color: #fff;
+    font-size: 20px;
+    padding: 16px;
+    border-style: none;
+    cursor: pointer;
+}
+drawer .item p {
+    color: #11c1f3;
+    font-size: 12px;
+}
+drawer .item:first-child {
+    border-top: 0px;
+}
+drawer .item:last-child {
+    border-bottom: 0px;
+}
+
+
+
+
+.page-background {
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+    color: #fff;
+}
+
+
+
+.newinforbox{
+    overflow-y: scroll;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,1,21,0.90);
+    margin-top: 60px;
+    top: 5%;
+    width: 75%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgb(128, 128, 128);
+    height: 80%;
+    position: relative;
+}
+.infobox {
+    width:250px;
+    height:75%;
+    overflow-y: scroll;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background:rgba(0,1,21,0.90);
+    margin-top: 60px;
+}
+
+
+
+.myTable {
+    width: 100%;
+}
+.myTable td {
+    padding: 5px 15px 5px 15px;
+    vertical-align: middle;
+}
+
+
+.menuButtonText{
+    margin-top: 0px;
+    color: #003471;
+}
+
+.checkbox_wrapper{
+    position: relative;
+    height: 50px;
+    width: 50px;
+    margin-top: -50px;
+}
+input[type="checkbox"] {
+    opacity:0;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+input[type="checkbox"] + label{
+    background-image: url('../img/checkbox-off.png');
+    background-size: 50px 50px;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+input[type="checkbox"]:checked + label{
+    background-image: url('../img/checkbox-on.png');
+    background-size: 50px 50px;
+    height: 50px;
+    width: 50px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+
+
+
+
+.button-active{
+    background-color: #00ff00;
+    color:#000000;
+}
+.button-inactive{
+    background-color: #ff0000;
+    color:#000000;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}
+@media only screen and (min-width: 500px) {
+    .desktop {
+        display: block;
+    }
+    .mobile {
+        display: none;
+    }
+}
+
+.isBrowserView {
+    overflow-y: auto !important;
+}
