@@ -1,4 +1,4 @@
-@extends('auth.layouts.login')
+@extends('auth.layouts.auth')
 
 @section('login-content')
 <div id="loginpage" style="padding: 10px;" align="center">
@@ -16,18 +16,18 @@
                     <td colspan="2">
                         <label class="item item-input">
                             <input
-                                id="email"
+                                id="phone"
                                 type="text"
                                 placeholder="שם משתמש"
-                                class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}"
+                                class="form-control @error('phone') is-invalid @enderror"
+                                name="phone" value="{{ old('phone') }}"
                                 required
                                 autocomplete=""
                                 autofocus
                                 data-inputmask="'mask': '99-9999999'"
                             >
 
-                            @error('email')
+                            @error('phone')
                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

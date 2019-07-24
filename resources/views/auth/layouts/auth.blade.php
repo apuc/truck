@@ -13,6 +13,7 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link rel="stylesheet" href="lib/ionic-ion-drawer/ionic.contrib.drawer.css">
     <link href="css/style.css" rel="stylesheet">
+{{--    <link href="/resources/css/style.css" rel="stylesheet">--}}
     <script src="/node_modules/inputmask/dist/jquery.inputmask.bundle.js"></script>
 
 
@@ -21,5 +22,6 @@
 </head>
     <body>
         @yield('login-content')
+        @yield('register-content')
     </body>
 </html>

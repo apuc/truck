@@ -4,7 +4,7 @@ namespace App\Http;
 
 
 use Dotenv\Exception\ValidationException;
-use http\Env\Request;
+use Illuminate\Http\Request;
 
 class Message {
 
@@ -167,8 +167,8 @@ class Message {
      * Check message text length
      */
     private static function validateText(string $text){
-        if(strlen(trim($text)) < 4){
-            throw new ValidationException("Too short message (at least 4 symblods)");
+        if(strlen(trim($text)) < 6){
+            throw new ValidationException("Too short message (at least 6 symblods)");
         }
     }
 

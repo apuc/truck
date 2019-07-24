@@ -1,4 +1,4 @@
-@extends('auth.layouts.login')
+@extends('auth.layouts.auth')
 
 @section('login-content')
 <div id="loginpage" style="padding: 10px;" align="center">
