@@ -15,9 +15,9 @@
             <tr>
                 <td colspan="2">
                     <label class="item item-input">
-                        <input id="email" type="email" placeholder="שם משתמש" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <input id="phone" type="text" placeholder="שם משתמש" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('phone') }}" required autofocus>
 
-                        @error('email')
+                        @error('phone')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -70,6 +70,10 @@
     <br>
     <p style="font-size: 20px;">?עדיין לא רשום<img src="img/van-blue.png" style="width: 50px;"></p>
     <p style="font-size: 30px; cursor: pointer;" ng-click="openRegisterPage();">להרשמה לחץ כאן</p>
+    <a style="font-size: 30px;" href="{{route('carrier-reg')}}">Register Carrier</a>
+    <br>
+    <br>
+    <a style="font-size: 30px;" href="{{route('start')}}">Home</a>
 </div>
 
 @endsection

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Carrier;
+use App\Shipper;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
@@ -97,6 +99,25 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, User $user)
     {
+        if($request->has('sh_reg')){
+            $newShipper = new Shipper();
+            $newShipper->user_id = $user->id;
+            if($request->has('email'))
+                $newShipper->shipper_email = $request->get('email');
+
+            if($request->has('firm'))
+                $newShipper->shipper_firm = $request->get('firm');
+
+            $newShipper->save();
+        }
+
+        if($request->has('car_reg')){
+
+            $newCarrier = new Carrier();
+
+
+        }
+
         $result = $user->sendVerificationCode($user);
 
     }
@@ -104,5 +125,10 @@ class RegisterController extends Controller
     public function showShipperRegistrationForm()
     {
         return view('auth.shipper-register');
+    }
+
+    public function showCarrierRegistrationForm()
+    {
+        return view('auth.carrier-register');
     }
 }

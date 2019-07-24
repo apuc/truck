@@ -7,6 +7,7 @@
         <p style="font-size: 20px;">לקוח קיים</p>
         <br>
         <form method="POST" action="{{ route('register') }}">
+            <input type="hidden" name="sh_reg">
             @csrf
 
             <table class="myTable">
@@ -46,7 +47,6 @@
                                 class="form-control @error('phone') is-invalid @enderror"
                                 name="phone" value="{{ old('phone') }}"
                                 required
-                                autocomplete=""
                                 autofocus
                                 data-inputmask="'mask': '99-9999999'"
                             >
@@ -70,7 +70,6 @@
                                 class="form-control @error('password') is-invalid @enderror"
                                 name="password"
                                 required
-                                autocomplete="current-password"
                             >
 
                             @error('password')
@@ -91,7 +90,30 @@
                                 class="form-control"
                                 name="password_confirmation"
                                 required
-                                autocomplete="new-password"
+                            >
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label class="item item-input">
+                            <input
+                                type="email"
+                                placeholder="email"
+                                class="form-control"
+                                name="email"
+                            >
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label class="item item-input">
+                            <input
+                                type="text"
+                                placeholder="Firm"
+                                class="form-control"
+                                name="firm"
                             >
                         </label>
                     </td>
@@ -128,5 +150,9 @@
         <br>
         <p style="font-size: 20px;">?עדיין לא רשום<img src="img/logo-blue.png" style="width: 120px;"></p>
         <p style="font-size: 30px; cursor: pointer;" ng-click="openRegisterPage();">להרשמה לחץ כאן</p>
+        <a style="font-size: 30px;" href="{{route('shipper-log')}}">Login shipper</a>
+        <br>
+        <br>
+        <a style="font-size: 30px;" href="{{route('start')}}">Home</a>
     </div>
 @endsection

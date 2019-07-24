@@ -13,14 +13,15 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('start');
 
 Auth::routes();
 
 Route::get('/shipper-log', 'Auth\LoginController@showShipperLoginForm')->name('shipper-log');
-Route::get('/carrier-log', 'Auth\LoginController@showCarrierLoginForm');
+Route::get('/carrier-log', 'Auth\LoginController@showCarrierLoginForm')->name('carrier-log');
 
 Route::get('/shipper-reg', 'Auth\RegisterController@showShipperRegistrationForm')->name('shipper-reg');
+Route::get('/carrier-reg', 'Auth\RegisterController@showCarrierRegistrationForm')->name('carrier-reg');
 
 Route::get('phone/verify', 'Auth\PhoneVerificationController@show')->name('phone-verification.notice');
 Route::post('phone/verify', 'Auth\PhoneVerificationController@verify')->name('phone-verification.verify');
@@ -28,4 +29,8 @@ Route::post('phone/verify', 'Auth\PhoneVerificationController@verify')->name('ph
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('/shipper-dash', 'ShipperController@showDashboard')->name('shipper-dash');
+Route::middleware(['auth', 'verified-phone'])->group(function () {
+    Route::get('/shipper-dash', 'ShipperController@showDashboard')->name('shipper-dash');
+});
+
+

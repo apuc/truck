@@ -15,6 +15,11 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
+
+            if($request->path() === 'shipper-dash'){
+                return route('shipper-log');
+            }
+
             return route('login');
         }
     }

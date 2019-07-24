@@ -7,6 +7,7 @@
     <p style="font-size: 20px;">לקוח קיים</p>
     <br>
     <form method="POST" action="{{ route('login') }}">
+        <input type="hidden" name="sh_log">
         @csrf
 
         <table class="myTable">
@@ -24,7 +25,7 @@
                                 required
                                 autocomplete=""
                                 autofocus
-                                data-inputmask="'mask': '99-9999999'"
+                                data-inputmask="'mask': '999999999999'"
                             >
 
                             @error('phone')
@@ -79,7 +80,11 @@
     <br>
     <br>
     <p style="font-size: 20px;">?עדיין לא רשום<img src="img/logo-blue.png" style="width: 120px;"></p>
-    <p style="font-size: 30px; cursor: pointer;" ng-click="openRegisterPage();">להרשמה לחץ כאן</p>
+    <p style="font-size: 30px; cursor: pointer;">להרשמה לחץ כאן</p>
+    <a style="font-size: 30px;" href="{{route('shipper-reg')}}">Register shipper</a>
+    <br>
+    <br>
+    <a style="font-size: 30px;" href="{{route('start')}}">Home</a>
 </div>
 
 @endsection
