@@ -52,7 +52,7 @@ class AdminController extends Controller {
      */
     public function userVerify($id){
         UserService::verifyUserByAdmin($id);
-        return redirect()->route('admin');
+        return redirect()->route('admin.unverified-users');
     }
 
 }
