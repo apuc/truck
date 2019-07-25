@@ -49,7 +49,20 @@
                         </tr>
                         </tbody>
                     </table>
+                    @auth()
+                        <div>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();"
+                            >
+                                LOGOUT
+                            </a>
 
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    @endauth
                     <div class="desktop" style="height: 80vh;">
                         <table style="display: block; position: absolute; top: 25%;" border="0" width="100%">
                             <tbody>
@@ -94,6 +107,7 @@
             <img src="img/navicon.png" style="width: 35px; margin-right: 5px;" ng-click="toggleDrawer()">
                                 <!--            <img src="img/close.png" style="width: 40px; margin: 5px;" ng-click="closeLogin()" />-->
         </span></div></ion-header-bar></div></ion-nav-bar>
+
 
             <ion-content scroll="true" overflow-scroll="true" style="background-color: #fff;" ng-class="{ isBrowserView : isBrowser == true } " class="scroll-content ionic-scroll overflow-scroll  has-header"><div class="scroll">
 

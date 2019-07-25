@@ -7,6 +7,7 @@
     <p style="font-size: 20px;">לקוח קיים</p>
     <br>
     <form method="POST" action="{{ route('login') }}">
+        <input type="hidden" name="car_log">
         @csrf
 
         <table class="myTable">
@@ -15,7 +16,17 @@
             <tr>
                 <td colspan="2">
                     <label class="item item-input">
-                        <input id="phone" type="text" placeholder="שם משתמש" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('phone') }}" required autofocus>
+                        <input
+                            id="phone"
+                            type="text"
+                            placeholder="שם משתמש"
+                            class="form-control @error('phone') is-invalid @enderror"
+                            name="phone"
+                            value="{{ old('phone') }}"
+                            required
+                            autofocus
+                            data-inputmask="'mask': '999999999999'"
+                        >
 
                         @error('phone')
                         <span class="invalid-feedback" role="alert">

@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -68,6 +68,9 @@ class LoginController extends Controller
     {
         if($request->has('sh_log'))
             return redirect('shipper-dash');
+
+        if($request->has('car_log'))
+            return redirect('carrier-dash');
     }
 
 }

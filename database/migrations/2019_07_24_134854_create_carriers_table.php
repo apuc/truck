@@ -15,6 +15,7 @@ class CreateCarriersTable extends Migration
     {
         Schema::create('carriers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id')->nullable();
             $table->string('carrier_address')->nullable();
 
         });
