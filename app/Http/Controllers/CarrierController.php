@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ShipperController extends Controller
+class CarrierController extends Controller
 {
     public function showDashboard()
     {
-        return view('shipper.dashboard');
+        return view('carrier.dashboard');
     }
 }

@@ -16,6 +16,7 @@
 
 </head>
     <body>
+
         @yield('login-content')
         @yield('register-content')
     </body>

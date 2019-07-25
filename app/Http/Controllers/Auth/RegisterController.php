@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
@@ -109,18 +110,25 @@ class RegisterController extends Controller
                 $newShipper->shipper_firm = $request->get('firm');
 
             $newShipper->save();
-        }
+        }//if
 
         if($request->has('car_reg')){
 
             $newCarrier = new Carrier();
+            $newCarrier->user_id = $user->id;
 
+            if($request->has('address'))
+                $newCarrier->carrier_address = $request->get('address');
 
+            $newCarrier->save();
+        }//if
+        try {
+            $result = $user->sendVerificationCode($user);
+        }catch (ValidationException $exception){
+            return redirect()->back()->with(['error' => $exception->getMessage()]);
         }
 
-        $result = $user->sendVerificationCode($user);
-
-    }
+    }//registered
 
     public function showShipperRegistrationForm()
     {

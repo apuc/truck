@@ -23,11 +23,10 @@
                                 name="name"
                                 value="{{ old('name') }}"
                                 required
-                                autocomplete="name"
                                 autofocus
                             >
 
-                            @error('email')
+                            @error('name')
                             <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

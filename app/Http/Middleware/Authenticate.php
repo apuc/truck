@@ -20,7 +20,11 @@ class Authenticate extends Middleware
                 return route('shipper-log');
             }
 
-            return route('login');
+            if($request->path() === 'carrier-dash'){
+                return route('carrier-log');
+            }
+
+            return route('start');
         }
     }
 }

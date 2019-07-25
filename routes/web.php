@@ -30,7 +30,17 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::middleware(['auth', 'verified-phone'])->group(function () {
-    Route::get('/shipper-dash', 'ShipperController@showDashboard')->name('shipper-dash');
+
+    Route::middleware('shipper')->group(function(){
+        Route::get('/shipper-dash', 'ShipperController@showDashboard')->name('shipper-dash');
+    });
+
+    Route::middleware('carrier')->group(function(){
+        Route::get('/carrier-dash', 'CarrierController@showDashboard')->name('carrier-dash');
+    });
+
+
+
 });
 
 
