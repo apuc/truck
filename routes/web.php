@@ -33,4 +33,29 @@ Route::middleware(['auth', 'verified-phone'])->group(function () {
     Route::get('/shipper-dash', 'ShipperController@showDashboard')->name('shipper-dash');
 });
 
+/*
+ * //////////////////////
+ * Cargo routes
+ * //////////////////////
+ */
 
+Route::get('/cargo/create', 'CargoController@create')->name('cargo.create');
+
+Route::post('/cargo/store', 'CargoController@store')->name('cargo.store');
+
+
+/*
+ * //////////////////////
+ * Admin routes
+ * //////////////////////
+ */
+
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+Route::get('/admin/users', 'AdminController@users')->name('admin.users');
+
+Route::get('/admin/unverified', 'AdminController@unverifiedUsers')->name('admin.unverified');
+
+Route::get('/admin/user/{id}', 'AdminController@user')->where('id', '[0-9]+');
+
+Route::get('/admin/user/{id}/verify', 'AdminController@userVerify')->where('id', '[0-9]+');
