@@ -49,6 +49,12 @@ class User extends Authenticatable
         $this->save();
     }
 
+    public function markVerifiedByAdmin()
+    {
+        $this->admin_verified_at = $this->freshTimestamp();
+        $this->save();
+    }
+
     public function sendVerificationCode(User $user)
     {
         $code = random_int(100000, 999999);
