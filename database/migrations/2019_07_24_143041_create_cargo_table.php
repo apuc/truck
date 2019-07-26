@@ -18,13 +18,22 @@ class CreateCargoTable extends Migration
             $table->bigInteger('shipper_id')->unsigned();
             $table->bigInteger('shipping_id')->unsigned();
             $table->integer('type_id')->unsigned();
-            $table->float('length')->nullable();
-            $table->float('weight')->nullable();
+            $table->string('description', 256);      // краткое описание
+            $table->float('length');                        // длина
+            $table->float('width');                         // ширина
+            $table->float('height');                        // высота
+            $table->float('weight');                        // вес в тоннах
+            $table->float('lifting_weight')->nullable();
+            $table->float('lifting_length')->nullable();
+            $table->tinyInteger('equipped');                // 1 - Lifting crane; 2- Plate
+            $table->string('comment');                      // комментарий
+            $table->string('order_number', 64);      // номер заказа у клиента
         });
 
 
         Schema::create('cargo_type', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name', 64);
         });
     }
 
